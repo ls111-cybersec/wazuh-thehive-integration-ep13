@@ -216,3 +216,32 @@ sudo chmod 755 /var/ossec/integrations/custom-w2thive
 sudo chown root:wazuh /var/ossec/integrations/custom-w2thive.py
 sudo chown root:wazuh /var/ossec/integrations/custom-w2thive
 ```
+
+***STEP5 - Final integration step - enabling the integration in the Wazuh manager configuration file*** <br>
+
+You will need to use your preferred text editor to modify '/var/ossec/etc/ossec.conf' and insert the below code. You will need to insert the IP address for your The Hive server inside the '<hook_url>' tags as well as insert your API key inside the '<api_key>' tags. I have place the code in my case just under the '</global>' tag in the config, make sure that your indentations match up to avoid running into issues.
+
+```
+<ossec_config>
+…
+  <integration>
+    <name>custom-w2thive</name>
+    <hook_url>http://TheHive_Server_IP:9000</hook_url>
+    <api_key>RWw/Ii0yE6l+Nnd3nv3o3Uz+5UuHQYTM</api_key>
+    <alert_format>json</alert_format>
+  </integration>
+…
+</ossec_config>
+```
+
+Once complete, you need to restart Wazuh Manager:
+
+'sudo systemctl restart wazuh-manager'
+
+If all went well, you should shortly see alerts being generated under the 'Alerts' tab in The Hive.
+
+***REFERENCES***
+[Using Wazuh and TheHive for threat protection and incident response](https://wazuh.com/blog/using-wazuh-and-thehive-for-threat-protection-and-incident-response/)
+
+
+

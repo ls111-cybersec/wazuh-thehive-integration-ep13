@@ -16,6 +16,8 @@ sudo yum install python3
 ```
 ***STEP2 - Install The Hive Python module using PIP*** <br>
 
+This is the Python module that will be referenced in the custom integration script that we will be creating in the next step. I have tested this module with version 5.2.1 of The Hive and its working at the time of this writeup.
+
 ```
-sudo pip3 install TheHive5py
+sudo /var/ossec/framework/python/bin/pip3 install thehive4py
 ```

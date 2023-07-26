@@ -62,6 +62,7 @@ fh = logging.FileHandler(log_file)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 fh.setFormatter(formatter)
 logger.addHandler(fh)
+
 def main(args):
     logger.debug('#start main')
     logger.debug('#get alert file location')
@@ -93,6 +94,7 @@ def main(args):
     elif int(w_alert['rule']['level'])>=lvl_threshold:
         #if the event is different from suricata AND suricata-event-type: alert check lvl_threshold
         send_alert(alert, thive_api)
+
 def pr(data,prefix, alt):
     for key,value in data.items():
         if hasattr(value,'keys'):
@@ -100,6 +102,7 @@ def pr(data,prefix, alt):
         else:
             alt.append((prefix+'.'+str(key)+'|||'+str(value)))
     return alt
+
 def md_format(alt,format_alt=''):
     md_title_dict = {}
     #sorted with first key
@@ -120,6 +123,7 @@ def md_format(alt,format_alt=''):
             key,val = let.split('|||')[0],let.split('|||')[1]
             format_alt+='| **' + key + '** | ' + val + ' |\n'
     return format_alt
+
 def artifact_detect(format_alt):
     artifacts_dict = {}
     artifacts_dict['ip'] = re.findall(r'\d+\.\d+\.\d+\.\d+',format_alt)
@@ -127,6 +131,7 @@ def artifact_detect(format_alt):
     artifacts_dict['domain'] = []
     for now in artifacts_dict['url']: artifacts_dict['domain'].append(now.split('//')[1].split('/')[0])
     return artifacts_dict
+
 def generate_alert(format_alt, artifacts_dict,w_alert):
     #generate alert sourceRef
     sourceRef = str(uuid.uuid4())[0:6]
@@ -152,12 +157,14 @@ def generate_alert(format_alt, artifacts_dict,w_alert):
               sourceRef=sourceRef,
               artifacts=artifacts,)
     return alert
+
 def send_alert(alert, thive_api):
     response = thive_api.create_alert(alert)
     if response.status_code == 201:
         logger.info('Create TheHive alert: '+ str(response.json()['id']))
     else:
         logger.error('Error create TheHive alert: {}/{}'.format(response.status_code, response.text))
+
 if __name__ == "__main__":
     try:
        logger.debug('debug mode') # if debug enabled       

@@ -14,3 +14,8 @@ This lab assumes you are using the provided Wazuh VirtualBox image (.OVA) as I h
 sudo yum update
 sudo yum install python3
 ```
+***STEP2 - Install The Hive Python module using PIP*** <br>
+
+```
+sudo pip3 install TheHive5py
+```

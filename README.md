@@ -240,7 +240,7 @@ Once complete, you need to restart Wazuh Manager:
 
 If all went well, you should shortly see alerts being generated under the 'Alerts' tab in The Hive.
 
-***REFERENCES***
+***REFERENCES***<br>
 [Using Wazuh and TheHive for threat protection and incident response](https://wazuh.com/blog/using-wazuh-and-thehive-for-threat-protection-and-incident-response/)
 
 

@@ -173,7 +173,7 @@ if __name__ == "__main__":
     except Exception:
        logger.exception('EGOR')
 ```
-Next, we need to create a bash script called 'custom-w2thive' and place it in '/var/ossec/integrations/custom-w2thive' which is needed to properly execute the .py script created above.
+Next, we need to create a bash script called `custom-w2thive` and place it in `/var/ossec/integrations/custom-w2thive` which is needed to properly execute the .py script created above.
 
 ```
 #!/bin/sh
@@ -219,7 +219,7 @@ sudo chown root:wazuh /var/ossec/integrations/custom-w2thive
 
 ***STEP5 - Final integration step - enabling the integration in the Wazuh manager configuration file*** <br>
 
-You will need to use your preferred text editor to modify '/var/ossec/etc/ossec.conf' and insert the below code. You will need to insert the IP address for your The Hive server inside the '<hook_url>' tags as well as insert your API key inside the '<api_key>' tags. I have place the code in my case just under the '</global>' tag in the config, make sure that your indentations match up to avoid running into issues.
+You will need to use your preferred text editor to modify `/var/ossec/etc/ossec.conf` and insert the below code. You will need to insert the IP address for your The Hive server inside the `<hook_url>` tags as well as insert your API key inside the `<api_key>` tags. I have placed the code in my case just under the `</global>` tag in the config, make sure that your indentations match up to avoid running into issues.
 
 ```
 <ossec_config>
@@ -236,9 +236,9 @@ You will need to use your preferred text editor to modify '/var/ossec/etc/ossec.
 
 Once complete, you need to restart Wazuh Manager:
 
-'sudo systemctl restart wazuh-manager'
+`sudo systemctl restart wazuh-manager`
 
-If all went well, you should shortly see alerts being generated under the 'Alerts' tab in The Hive.
+If all went well, you should shortly see alerts being generated under the `Alerts` tab in The Hive.
 
 ***REFERENCES***<br>
 [Using Wazuh and TheHive for threat protection and incident response](https://wazuh.com/blog/using-wazuh-and-thehive-for-threat-protection-and-incident-response/)

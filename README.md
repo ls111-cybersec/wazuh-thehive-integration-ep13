@@ -8,7 +8,7 @@ xxx
 
 ***STEP1 - Install Python & PIP on your Wazuh server*** <br>
 
-This lab assumes you are using the provided Wazuh VirtualBox image (.OVA) like I have used.
+This lab assumes you are using the provided Wazuh VirtualBox image (.OVA) as I have used.
 
 ```
 sudo yum update

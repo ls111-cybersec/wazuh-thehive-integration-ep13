@@ -8,7 +8,7 @@ xxx
 
 ***STEP1 - Install Python & PIP on your Wazuh server*** <br>
 
-This lab assumes you are using the provided Wazuh VirtualBox image (.OVA) as I have used.
+This lab assumes you are using the provided Wazuh VirtualBox image (.OVA) that I used, which did not have Python preinstalled.
 
 ```
 sudo yum update
@@ -21,3 +21,7 @@ This is the Python module that will be referenced in the custom integration scri
 ```
 sudo /var/ossec/framework/python/bin/pip3 install thehive4py
 ```
+***STEP3 - Creating the custom integration script*** <br>
+
+The below script will need to be created in /var/ossec/integrations/ and called custom-w2thive.py I used nano to create/edit the script, however, you can use whatever text editor you like for this. <br>
+This script has the lvl_threshold variable set to 0, meaning that all alerts created by Wazuh will be forwarded to The Hive. This has the potential to create a lot of noise if you have a lot of agents you are monitoring on your network so you may want to consider setting this to a higher level to only alert on more serious classifications. Please check the Wazuh ruleset classifications in the manual(https://documentation.wazuh.com/current/user-manual/ruleset/rules-classification.html)

@@ -2,3 +2,7 @@
 
 In this episode, we will integrate Wazuh with The Hive to automatically send alerts issued by Wazuh to The Hive. SOC Analysts will then have the option to investigate and respond to these alerts and create cases if required.
 
+(video link here)<br>
+
+xxx
+

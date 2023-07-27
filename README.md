@@ -2,9 +2,7 @@
 
 In this episode, we will integrate Wazuh with The Hive to automatically send alerts issued by Wazuh to The Hive. SOC Analysts will then have the option to investigate and respond to these alerts and create cases if required.
 
-(video link here)<br>
-
-xxx
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/t51xiE4MAZg/0.jpg)](http://www.youtube.com/watch?v=t51xiE4MAZg "How to Integrate Wazuh & TheHive - Virtual Lab Building Series Ep: 13")
 
 ***STEP1 - Install Python & PIP on your Wazuh server*** <br>
 
